@@ -1,0 +1,70 @@
+package projetinho;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+
+public class Registrando {
+
+	private JFrame frame;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Registrando window = new Registrando();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Registrando() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 611, 505);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("LEITURA DO CONSUMO DE ENERGIA");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setBounds(47, 21, 508, 33);
+		frame.getContentPane().add(lblNewLabel);
+		
+		JButton btnNewButton = new JButton("Inserir dados da unidade");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton.setBounds(150, 107, 311, 63);
+		frame.getContentPane().add(btnNewButton);
+		
+		JButton btnInserirLeitura = new JButton("Inserir leitura");
+		btnInserirLeitura.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnInserirLeitura.setBounds(150, 211, 311, 63);
+		frame.getContentPane().add(btnInserirLeitura);
+		
+		JButton btnSair = new JButton("Sair");
+		btnSair.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnSair.setBounds(150, 323, 311, 63);
+		frame.getContentPane().add(btnSair);
+	}
+
+}

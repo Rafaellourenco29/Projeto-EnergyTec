@@ -1,0 +1,81 @@
+package projetinho;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import javax.swing.JButton;
+
+public class Calculo {
+
+	private JFrame frame;
+	private JTextField textField;
+	private JTextField textField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Calculo window = new Calculo();
+					window.frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Calculo() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frame = new JFrame();
+		frame.setBounds(100, 100, 599, 477);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.getContentPane().setLayout(null);
+		
+		JLabel lblPrimeiraLeitura = new JLabel("PRIMEIRA LEITURA");
+		lblPrimeiraLeitura.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrimeiraLeitura.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblPrimeiraLeitura.setBounds(38, 27, 508, 33);
+		frame.getContentPane().add(lblPrimeiraLeitura);
+		
+		JLabel lblNewLabel_2 = new JLabel("Digite a primeira leitura:");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setBounds(174, 114, 227, 31);
+		frame.getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Digite a leitura:");
+		lblNewLabel_2_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2_1.setBounds(174, 236, 227, 31);
+		frame.getContentPane().add(lblNewLabel_2_1);
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		textField.setBounds(196, 156, 186, 31);
+		frame.getContentPane().add(textField);
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		textField_1.setBounds(196, 298, 186, 31);
+		frame.getContentPane().add(textField_1);
+		
+		JButton btnNewButton = new JButton("Avan\u00E7ar");
+		btnNewButton.setBounds(484, 404, 89, 23);
+		frame.getContentPane().add(btnNewButton);
+	}
+
+}

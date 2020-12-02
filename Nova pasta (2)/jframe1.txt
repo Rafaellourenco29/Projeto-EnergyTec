@@ -1,0 +1,119 @@
+package projetinho;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JPasswordField;
+
+public class LoginCadastro {
+
+	private JFrame frmLogin;
+	private JTextField textField;
+	private JTextField textField_2;
+	private JPasswordField passwordField;
+	private JPasswordField passwordField_1;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					LoginCadastro window = new LoginCadastro();
+					window.frmLogin.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public LoginCadastro() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmLogin = new JFrame();
+		frmLogin.setTitle("Login");
+		frmLogin.setBounds(100, 100, 963, 515);
+		frmLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmLogin.getContentPane().setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("LOGIN");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel.setBounds(230, 73, 71, 31);
+		frmLogin.getContentPane().add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setBounds(171, 159, 186, 31);
+		frmLogin.getContentPane().add(textField);
+		textField.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setBounds(619, 159, 168, 31);
+		frmLogin.getContentPane().add(textField_2);
+		textField_2.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("CADASTRE-SE");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		lblNewLabel_1.setBounds(640, 73, 125, 31);
+		frmLogin.getContentPane().add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Nome:");
+		lblNewLabel_2.setBounds(148, 131, 46, 14);
+		frmLogin.getContentPane().add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Senha:");
+		lblNewLabel_3.setBounds(148, 230, 46, 14);
+		frmLogin.getContentPane().add(lblNewLabel_3);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("Nome:");
+		lblNewLabel_2_1.setBounds(594, 131, 46, 14);
+		frmLogin.getContentPane().add(lblNewLabel_2_1);
+		
+		JLabel lblNewLabel_3_1 = new JLabel("Senha:");
+		lblNewLabel_3_1.setBounds(594, 230, 46, 14);
+		frmLogin.getContentPane().add(lblNewLabel_3_1);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(Color.GRAY);
+		panel.setForeground(Color.LIGHT_GRAY);
+		panel.setBounds(470, 0, 10, 476);
+		frmLogin.getContentPane().add(panel);
+		
+		JButton btnNewButton = new JButton("Login");
+		btnNewButton.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton.setBounds(212, 336, 89, 23);
+		frmLogin.getContentPane().add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Cadastrar");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		btnNewButton_1.setBounds(666, 338, 99, 23);
+		frmLogin.getContentPane().add(btnNewButton_1);
+		
+		passwordField = new JPasswordField();
+		passwordField.setBounds(171, 262, 186, 31);
+		frmLogin.getContentPane().add(passwordField);
+		
+		passwordField_1 = new JPasswordField();
+		passwordField_1.setBounds(619, 255, 186, 31);
+		frmLogin.getContentPane().add(passwordField_1);
+	}
+
+}

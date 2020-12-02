@@ -1,0 +1,166 @@
+package projetinho;
+
+import java.util.Scanner;
+
+public class TestCadastro {
+
+	int rodaRelogio(int atual, int anterior) {
+		int total;
+		total = (9999 - anterior) + atual;
+		return total;
+	}
+
+	int leitura(int atual, int anterior) {
+		int total;
+		total = atual - anterior;
+		return total;
+	}
+
+	boolean leituraValida(int leitura) {
+		boolean resp = false;
+
+		if ((leitura >= 0000) || (leitura <= 9999)) {
+			resp = true;
+		}
+		return resp;
+	}
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		Main uc = new Main();
+		
+		System.out.println("Cadastre-se");
+        System.out.println("Digite o seu Login: ");
+        String login = sc.nextLine();
+        
+        System.out.println("Digite a senha: ");
+        String senha = sc.nextLine();
+        System.out.println("\n");
+        System.out.println("Login e Senha cadastrados com Sucesso!");
+        
+        System.out.println("\n");
+        System.out.println("Agora você digite o login e a senha cadastrada no sistema");
+        System.out.println("\n");
+        System.out.println("Digite seu login: ");     
+        String login2 = sc.nextLine();
+        System.out.println("Digite sua senha: ");     
+        String senha2 = sc.nextLine();
+        
+        if(login2.equals(login) && senha2.equals(senha)){
+            System.out.println("Bem-vindo ao Sistema de Monitoramento de energia EnergyTec!");            
+        } else {
+            System.out.println("login ou senha inválidos");
+        }
+        
+		double total;
+		int sai = 1;
+		int leituraAtual = 0, leituraAnterior = 0;
+		int ucCodigo = 0;
+		String ucNomeProprietario = null, ucEndereco = null;
+		boolean resp = false;
+		boolean primeiraLeitura = false;
+
+		do {
+
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println();
+			System.out.println("---------- LEITURA DO CONSUMO DE ENERGIA----------");
+			System.out.println("1. INSERIR DADOS DA UNIDADE");
+			System.out.println("2. INSERIR LEITURA");
+			System.out.println("3. SAIR");
+			String input = sc.next();
+			int x = Integer.parseInt(input);
+			System.out.println();
+
+			switch (x) {
+
+			case 1: {
+
+				System.out.print("Digite o codigo da unidade consumidora: ");
+				String codigo = sc.next();
+				ucCodigo = Integer.parseInt(codigo);
+				System.out.println();
+				System.out.print("Digite o nome do proprietario da unidade consumidora: ");
+				ucNomeProprietario = sc.next();
+				System.out.println();
+				System.out.print("Digite o endereco da unidade consumidora: ");
+				ucEndereco = sc.next();
+				System.out.println();
+				resp = true;
+				primeiraLeitura = true;
+			}
+			case 2: {
+				if (resp == false) {
+					System.out.println("Necessario inserir dados da unidade primeiro");
+					break;
+				} else {
+					System.out.println("Unidade:            " + ucCodigo);
+					System.out.println("Proprietario:       " + ucNomeProprietario);
+					System.out.println("Endereco:           " + ucEndereco);
+					System.out.println("Tarifa(KW/h):       R$0,85");
+
+					if (primeiraLeitura == true) {
+						System.out.print("Digite a primeira leitura: ");
+						String leitura = sc.next();
+						leituraAnterior = Integer.parseInt(leitura);
+
+						if (uc.leituraValida(leituraAnterior)) {
+							primeiraLeitura = false;
+						} else
+							System.out.println("Leitura fora do padrão(0000 - 9999)");
+					}
+					if (resp == true) {
+						do {
+							System.out.print("Digite a leitura: ");
+							String leitura = sc.next();
+							leituraAtual = Integer.parseInt(leitura);
+
+							if (uc.leituraValida(leituraAtual)) {
+
+								if (leituraAtual < leituraAnterior) {
+									System.out.println("Leitura Anterior:   " + leituraAnterior);
+									System.out.println("Leitura Atual:      " + leituraAtual);
+									System.out.println(
+											"Consumo      :      " + uc.rodaRelogio(leituraAtual, leituraAnterior));
+									total = (uc.rodaRelogio(leituraAtual, leituraAnterior) * 0.85);
+									System.out.println("Valor da Tarifa:    R$" + total);
+									System.out.println();
+									leituraAnterior = leituraAtual;
+
+								} else {
+									System.out.println("Leitura Anterior:   " + leituraAnterior);
+									System.out.println("Leitura Atual:      " + leituraAtual);
+									System.out.println(
+											"Consumo      :      " + uc.leitura(leituraAtual, leituraAnterior));
+									total = (uc.leitura(leituraAtual, leituraAnterior) * 0.85);
+									System.out.println("Valor da Tarifa:    R$" + total);
+									System.out.println();
+									leituraAnterior = leituraAtual;
+								}
+							} else
+								System.out.println("Leitura fora do padrão(0000 - 9999)");
+
+						} while (leituraAtual >= 0);
+					}
+				}
+			}
+			case 3: {
+				System.out.println("Obrigado por utilizar o programa");
+				System.out.println();
+				sai = 0;
+				break;
+			}
+			}
+		} while (sai != 0);
+		
+		sc.close();
+	}
+
+	public void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+}
